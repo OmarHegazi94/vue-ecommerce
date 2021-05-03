@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import AdminRoutes from '@/router/Admin/index.js'
 
 Vue.use(VueRouter)
 
-const routes = [
+
+const baseRoutes = [
   {
     path: '/',
     name: 'Home',
@@ -19,6 +21,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
+
+const routes = [...baseRoutes, ...AdminRoutes]
 
 const router = new VueRouter({
   routes
