@@ -6,51 +6,26 @@
       <strong>BS</strong>
     </div>
 
-    <ul class="list-unstyled components">
-      <li class="active">
-        <a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-home"></i>
-          Home
-        </a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li>
-            <a href="#">Home 1</a>
-          </li>
-          <li>
-            <a href="#">Home 2</a>
-          </li>
-          <li>
-            <a href="#">Home 3</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-briefcase"></i>
-          About
-        </a>
-        <a
-          href="#pageSubmenu"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-        >
-          <i class="fas fa-copy"></i>
-          Pages
-        </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li>
-            <a href="#">Page 1</a>
-          </li>
-          <li>
-            <a href="#">Page 2</a>
-          </li>
-          <li>
-            <a href="#">Page 3</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <nav class="mb-3">
+      <b-nav vertical>
+        <b-nav-item active>Active</b-nav-item>
+        <b-nav-item href="#link-1">Link</b-nav-item>
+        <b-nav-item href="#link-2">Another Link</b-nav-item>
+
+        <b-nav-item v-b-toggle.collapse-1 variant="primary">
+          Another Link
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+          </svg>
+        </b-nav-item>
+
+
+        <b-collapse id="collapse-1" class="">
+            <b-nav-item href="#link-2">Another Link</b-nav-item>
+        </b-collapse>
+      </b-nav>
+    </nav>
+
   </nav>
 </template>
 
@@ -61,6 +36,12 @@ export default {
 </script>
 
 <style scoped>
+.nav-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 p {
   font-family: "Poppins", sans-serif;
   font-size: 1.1em;
@@ -175,7 +156,7 @@ span {
 #sidebar ul li a {
   padding: 10px;
   font-size: 1.1em;
-  display: block;
+  /* display: block; */
 }
 
 #sidebar ul li a:hover {
