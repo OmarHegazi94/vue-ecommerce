@@ -1,5 +1,7 @@
 <template>
   <div class="wrapper">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
     <admin-Header :HideSidebar="hideSidebar"></admin-Header>
 
     <!-- Page Content  -->
@@ -32,7 +34,8 @@
       <main class="container">
           <div class="row">
               <div class="col">
-                  koko
+                  Admin Page
+                  <router-view></router-view>
               </div>
           </div>
       </main>
@@ -54,14 +57,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /*
     DEMO STYLE
 */
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Lato', sans-serif;
   background: #fafafa;
 }
 

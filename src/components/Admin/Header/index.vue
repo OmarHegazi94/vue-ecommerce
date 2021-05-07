@@ -7,35 +7,74 @@
     </div>
 
     <nav class="mb-3">
-      <b-nav vertical>
-        <b-nav-item active>Active</b-nav-item>
-        <b-nav-item href="#link-1">Link</b-nav-item>
-        <b-nav-item href="#link-2">Another Link</b-nav-item>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <router-link to="/admin" class="nav-link active">Admin</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/admin/products" class="nav-link"
+            >Products</router-link
+          >
+        </li>
 
-        <b-nav-item v-b-toggle.collapse-1 variant="primary">
-          Another Link
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-          </svg>
-        </b-nav-item>
-
-
-        <b-collapse id="collapse-1" class="">
-            <b-nav-item href="#link-2">Another Link</b-nav-item>
-        </b-collapse>
-      </b-nav>
+        <li class="nav-item">
+          <a type="button" class="nav-link" @click="toggleDropdown">
+            Link
+            <svg
+              v-if="!dropdownVisible"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+              />
+            </svg>
+            <svg
+              v-if="dropdownVisible"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-down-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
+          </a>
+          <ul class="nav flex-column" v-if="dropdownVisible">
+            <li class="nav-item">
+              <a class="nav-link">Link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </nav>
-
   </nav>
 </template>
 
 <script>
 export default {
   props: ["HideSidebar"],
+  data() {
+    return {
+      dropdownVisible: false,
+    };
+  },
+  methods: {
+    toggleDropdown() {
+      this.dropdownVisible = !this.dropdownVisible;
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .nav-item a {
   display: flex;
   align-items: center;
@@ -43,7 +82,7 @@ export default {
 }
 
 p {
-  font-family: "Poppins", sans-serif;
+  // font-family: "Poppins", sans-serif;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
