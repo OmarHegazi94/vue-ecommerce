@@ -31,10 +31,9 @@
         </div>
       </nav>
       <!-- main content  -->
-      <main class="container">
+      <main class="container-fluid p-5">
           <div class="row">
               <div class="col">
-                  Admin Page
                   <router-view></router-view>
               </div>
           </div>

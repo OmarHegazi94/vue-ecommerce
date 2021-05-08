@@ -6,6 +6,8 @@ import store from './store'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
+import VEButton from "@/components/Shared/VEButton.vue";
+
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // import '@/assets/styles/app.scss'
@@ -14,6 +16,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 // Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 // Vue.use(IconsPlugin)
+
+Vue.component('VEButton', VEButton);
 
 Vue.config.productionTip = false
 

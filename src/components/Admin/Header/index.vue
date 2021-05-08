@@ -2,18 +2,23 @@
   <!-- Sidebar  -->
   <nav id="sidebar" :class="{ active: HideSidebar }">
     <div class="sidebar-header">
-      <h3>Bootstrap Sidebar</h3>
-      <strong>BS</strong>
+      <h3>E-Commerce</h3>
+      <strong>EC</strong>
     </div>
 
     <nav class="mb-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <router-link to="/admin" class="nav-link active">Admin</router-link>
+          <router-link to="/admin" exact active-class="active" class="nav-link active">Admin</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/admin/products" class="nav-link"
+          <router-link to="/admin/products" exact active-class="active" class="nav-link"
             >Products</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/admin/categories" exact active-class="active" class="nav-link"
+            >Categories</router-link
           >
         </li>
 
@@ -75,6 +80,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ nav li:hover,
+ nav li.router-link-active,
+ nav li.router-link-exact-active {
+   background-color: indianred;
+   cursor: pointer;
+ }
+
+li:hover,
+li .router-link-exact-active ,
+li .router-link-active {
+  color: #fff;
+  background: #6d7fcc;
+}
+
 .nav-item a {
   display: flex;
   align-items: center;
@@ -127,7 +146,7 @@ span {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #7386d5;
+  background: #1b223d;
   color: #fff;
   transition: all 0.3s;
 }
@@ -179,7 +198,7 @@ span {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #6d7fcc;
+  background: #1b223d;
 }
 
 #sidebar .sidebar-header strong {
@@ -228,7 +247,7 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
+  background: #1b223d;
 }
 
 ul.CTAs {
